@@ -1,0 +1,36 @@
+﻿<Window x:Class="_3DCarManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3DCarManagement"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="GridTotal">
+        <Button Content="Import new Car" HorizontalAlignment="Left" Margin="75,69,0,0" VerticalAlignment="Top" Click="Button_Click" Width="156"/>
+        <Label Content="TOY CAR MODEL MANAGEMENT" Margin="271,22,334,381"/>
+        <Button Content="View all model in3D" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_1"/>
+        <DataGrid x:Name="DataTotal" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,115,10,19" SelectionChanged="DataTotal_SelectionChanged">
+            <DataGrid.Columns>
+               
+                <!-- Edit Column -->
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Click="EditButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Delete Column -->
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
