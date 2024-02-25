@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="GridTotal">
-        <Button Content="Import new Car" HorizontalAlignment="Left" Margin="75,69,0,0" VerticalAlignment="Top" Click="Button_Click" Width="156"/>
+        <Button x:Name="ImportBTN" Content="Import new Car" HorizontalAlignment="Left" Margin="75,69,0,0" VerticalAlignment="Top" Click="Button_Click" Width="156"/>
         <Label Content="TOY CAR MODEL MANAGEMENT" Margin="271,22,334,381"/>
-        <Button Content="View all model in3D" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_1"/>
-        <DataGrid x:Name="DataTotal" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,115,10,19" SelectionChanged="DataTotal_SelectionChanged">
+        <Button x:Name="ViewAllBTN" Content="View all model in3D" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_1"/>
+        <DataGrid x:Name="DataTotal" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,115,10,135" SelectionChanged="DataTotal_SelectionChanged">
             <DataGrid.Columns>
-               
+
                 <!-- Edit Column -->
                 <DataGridTemplateColumn Header="Edit">
                     <DataGridTemplateColumn.CellTemplate>
@@ -32,5 +32,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="CarDetailBTN" Content="View details" HorizontalAlignment="Left" Margin="309,69,0,0" VerticalAlignment="Top" Width="91" Click="CarDetailBTN_Click"/>
     </Grid>
 </Window>

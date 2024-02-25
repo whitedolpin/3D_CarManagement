@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NuGet.Frameworks;
 using Repository.Models;
 using System.Text;
 using System.Windows;
@@ -30,13 +31,10 @@ namespace _3DCarManagement
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ImportCar Import = new ImportCar(_context);
+            Import.Show();
         }
 
-       
-        
-
-       
         private void DataTotal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -75,6 +73,12 @@ namespace _3DCarManagement
             }
             DataTotal.ItemsSource = null;
             LoadGridView();
+        }
+
+        private void CarDetailBTN_Click(object sender, RoutedEventArgs e)
+        {
+            CarDetail car = new CarDetail();
+            car.Show(); 
         }
     }
 }
