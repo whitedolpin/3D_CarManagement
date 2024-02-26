@@ -22,10 +22,18 @@ namespace _3DCarManagement
     {
         private Prn3dContext _context;
         int selectedID = 0;
+        
         public MainWindow()
         {
             InitializeComponent();
             _context = new Prn3dContext();
+            LoadGridView();
+        }
+
+        public void HandleChildWindowClosed()
+        {
+            DataTotal.ItemsSource = null;
+
             LoadGridView();
         }
 
@@ -52,7 +60,7 @@ namespace _3DCarManagement
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Car selected = DataTotal.SelectedItem as Car;
+            Car? selected = DataTotal.SelectedItem as Car;
             if (selected != null)
             {
                 _context.Cars.Update(selected);
@@ -64,7 +72,7 @@ namespace _3DCarManagement
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            Car selected = DataTotal.SelectedItem as Car;
+            Car? selected = DataTotal.SelectedItem as Car;
             if (selected != null)
             {
                 _context.Cars.Remove(selected);
@@ -77,8 +85,16 @@ namespace _3DCarManagement
 
         private void CarDetailBTN_Click(object sender, RoutedEventArgs e)
         {
-            CarDetail car = new CarDetail();
-            car.Show(); 
+            Car? selected = DataTotal.SelectedItem as Car;
+            if (selected != null)
+            {
+                CarDetail car = new CarDetail(selected);
+                car.Show();
+            }
+            else
+            {
+                MessageBox.Show(" Please choose a car!");
+            }
         }
     }
 }

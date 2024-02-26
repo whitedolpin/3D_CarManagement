@@ -7,14 +7,10 @@
         mc:Ignorable="d"
         Title="ImportCar" Height="450" Width="800">
     <Grid>
-        <Label Margin="270,10,418,389">
-            <Label x:Name="Title" Content="IMPORT NEW CAR" Height="35" Width="130"/>
-        </Label>
-        <Label Content="CarID" Margin="10,58,742,350"/>
         <Label Content="Created_By:" HorizontalAlignment="Left" Margin="14,146,0,0" VerticalAlignment="Top"/>
         <Label Content="PositionID:" HorizontalAlignment="Left" Margin="12,220,0,0" VerticalAlignment="Top"/>
         <Label Content="Check_By:" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top"/>
-        <Label Content="CarID" Margin="10,58,742,350"/>
+        <Label Content="Car information" Margin="466,95,232,313"/>
         <Label Content="Management Info" HorizontalAlignment="Left" Margin="7,95,0,0" VerticalAlignment="Top"/>
         <GridSplitter HorizontalAlignment="Left" Height="329" Margin="230,95,0,0" VerticalAlignment="Top" Width="4"/>
         <GridSplitter HorizontalAlignment="Left" Height="983" Margin="307,-355,0,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="0.5,0.5">
@@ -27,7 +23,6 @@
                 </TransformGroup>
             </GridSplitter.RenderTransform>
         </GridSplitter>
-        <Label Content="Overview" HorizontalAlignment="Left" Margin="488,95,0,0" VerticalAlignment="Top"/>
         <Label Content="Brand Name:" HorizontalAlignment="Left" Margin="239,136,0,0" VerticalAlignment="Top"/>
         <Label Content="Model Name:" HorizontalAlignment="Left" Margin="239,172,0,0" VerticalAlignment="Top"/>
         <Label Content="Scale:" HorizontalAlignment="Left" Margin="239,210,0,0" VerticalAlignment="Top"/>
@@ -45,7 +40,6 @@
         <Button x:Name="Create_Save" Content="Save" HorizontalAlignment="Left" Margin="624,58,0,0" VerticalAlignment="Top" Width="50" Click="Create_Save_Click"/>
         <Label Content="File 3D:" HorizontalAlignment="Left" Margin="526,335,0,0" VerticalAlignment="Top"/>
         <Label Content="Other info: " HorizontalAlignment="Left" Margin="525,375,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CarID" HorizontalAlignment="Left" Margin="58,58,0,0" TextWrapping="Wrap" Text="CarID" VerticalAlignment="Top" Width="71" Height="26"/>
         <TextBox x:Name="Created_By" HorizontalAlignment="Left" Margin="83,146,0,0" TextWrapping="Wrap" Text="Created_By" VerticalAlignment="Top" Width="133" Height="26"/>
         <TextBox x:Name="Check_By" HorizontalAlignment="Left" Margin="83,182,0,0" TextWrapping="Wrap" Text="Check_By" VerticalAlignment="Top" Width="133" Height="26"/>
         <TextBox x:Name="PositionID" HorizontalAlignment="Left" Margin="83,220,0,0" TextWrapping="Wrap" Text="PositionID" VerticalAlignment="Top" Width="133" Height="26"/>
@@ -61,7 +55,9 @@
         <TextBox x:Name="Car_status" HorizontalAlignment="Left" Margin="600,207,0,0" TextWrapping="Wrap" Text="Car_status" VerticalAlignment="Top" Width="161" Height="26"/>
         <TextBox x:Name="MonthlyCheck" HorizontalAlignment="Left" Margin="600,255,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Width="161" Height="26"/>
         <TextBox x:Name="StatusCheck" HorizontalAlignment="Left" Margin="600,295,0,0" TextWrapping="Wrap" Text="StatusCheck" VerticalAlignment="Top" Width="161" Height="26"/>
-        <TextBox x:Name="File3D" HorizontalAlignment="Left" Margin="600,335,0,0" TextWrapping="Wrap" Text="Link" VerticalAlignment="Top" Width="161" Height="26"/>
         <TextBox x:Name="OtherInfo" HorizontalAlignment="Left" Margin="600,375,0,0" TextWrapping="Wrap" Text="Others" VerticalAlignment="Top" Width="161" Height="26"/>
+        <Button x:Name="ChooseFile" Content="Choose" HorizontalAlignment="Left" Margin="600,338,0,0" VerticalAlignment="Top" Width="49" Click="Choose_3d_file"/>
+        <TextBox x:Name="File3d" HorizontalAlignment="Left" Margin="654,335,0,0" TextWrapping="Wrap" Text="Link" VerticalAlignment="Top" Width="107" Height="26"/>
+        <Label Content="IMPORT NEW CAR" Margin="306,26,382,382"/>
     </Grid>
 </Window>

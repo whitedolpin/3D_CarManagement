@@ -6,51 +6,42 @@
         xmlns:local="clr-namespace:_3DCarManagement"
         mc:Ignorable="d"
         Title="CarDetail" Height="450" Width="800">
+
+
     <Grid>
-        <Viewport3D Name="viewport3D1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <Viewport3D Name="viewport3D1">
             <!-- Define camera -->
             <Viewport3D.Camera>
-                <PerspectiveCamera x:Name="camMain" Position="6, 5, 4" LookDirection="-6, -5, -4" UpDirection="0, 1, 0" FieldOfView="45"/>
+                <PerspectiveCamera x:Name="camMain" Position="24, 23, 22" LookDirection="-6, -5, -4" UpDirection="0, 1, 0" FieldOfView="45"/>
             </Viewport3D.Camera>
+
+            <!-- Define lights and 3D model -->
 
             <!-- Define lights and 3D model -->
             <ModelVisual3D>
                 <ModelVisual3D.Content>
-                    <Model3DGroup>
-                        <!-- Define lights -->
-                        <DirectionalLight Color="White" Direction="-1,-1,-1"/>
-                        <DirectionalLight Color="White" Direction="1,-1,-1"/>
-
-                        <!-- Define 3D model with RotateTransform3D -->
-                        <GeometryModel3D>
-                            <GeometryModel3D.Transform>
-                                <RotateTransform3D>
-                                    <RotateTransform3D.Rotation>
-                                        <AxisAngleRotation3D x:Name="rotate" Axis="0, 1, 0" Angle="45"/>
-                                    </RotateTransform3D.Rotation>
-                                </RotateTransform3D>
-                            </GeometryModel3D.Transform>
-
-                            <GeometryModel3D.Geometry>
-                                <MeshGeometry3D Positions="-1,-1,-1 1,-1,-1 1,1,-1 -1,1,-1 -1,-1,1 1,-1,1 1,1,1 -1,1,1"
-                                                TriangleIndices="0,1,2 0,2,3 4,5,6 4,6,7 0,4,7 0,7,3 1,5,6 1,6,2 0,1,5 0,5,4 2,6,7 2,7,3"/>
-                            </GeometryModel3D.Geometry>
-
-                            <GeometryModel3D.Material>
-                                <DiffuseMaterial>
-                                    <DiffuseMaterial.Brush>
-                                        <SolidColorBrush Color="Blue"/>
-                                    </DiffuseMaterial.Brush>
-                                </DiffuseMaterial>
-                            </GeometryModel3D.Material>
-                        </GeometryModel3D>
-                    </Model3DGroup>
+                    <!-- Bind the ModelInstance property to the Content property of ModelVisual3D -->
+                    <Binding Path="ModelInstance" RelativeSource="{RelativeSource AncestorType={x:Type local:CarDetail}}" />
                 </ModelVisual3D.Content>
             </ModelVisual3D>
         </Viewport3D>
-        <Slider Height="23" HorizontalAlignment="Left" Margin="41,337,0,0" Width="170" Name="slider1" VerticalAlignment="Top"
-                Maximum="360" Value="{Binding ElementName=rotate,Path=Angle}"
-                />
+        <Slider Height="23" HorizontalAlignment="Left" Margin="41,337,0,0" Width="170" x:Name="Rotate_Slider" VerticalAlignment="Top"
+        Maximum="360" Value="{Binding Path=RotationAngle, Mode=TwoWay}" ValueChanged="slider1_ValueChanged" />
+        <Slider x:Name="Horizontal_Rotate" HorizontalAlignment="Left" Margin="-35,251,0,0" VerticalAlignment="Top" Width="120" 
+               Maximum="360" RenderTransformOrigin="0.5,0.5" ValueChanged="Horizontal_Rotate_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.909"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Label Content="Zoom: " HorizontalAlignment="Left" Margin="20,22,0,0" VerticalAlignment="Top" Width="51"/>
+        <Slider x:Name="Zoom_Slider" HorizontalAlignment="Left" Margin="91,26,0,0" VerticalAlignment="Top" Width="120" Minimum="0" Maximum="100" Value="5" ValueChanged="Zoom_Slider_ValueChanged_1" />
+
 
 
     </Grid>
