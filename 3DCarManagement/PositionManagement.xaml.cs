@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace _3DCarManagement
 {
     /// <summary>
-    /// Interaction logic for PositionManagement.xaml
+    /// Interaction logic for PositionManagfdfement.xaml
     /// </summary>
     public partial class PositionManagement : Window
     {
