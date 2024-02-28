@@ -26,20 +26,23 @@ namespace _3DCarManagement
         private bool confirm = false;
         private Prn3dContext _context;
         private string filePath;
+        public event EventHandler ChildFormClosed;
         public ImportCar(Prn3dContext context)
         {
             _context = context;
             InitializeComponent();
             Create_Save.IsEnabled = false;
 
-            Closed += CarDetail_Closed;
         }
-        private void CarDetail_Closed(object sender, EventArgs e)
+        private void OnChildFormClosed(EventArgs e)
         {
-            // Notify the parent window that the child window is closed
-            MessageBox.Show("Create success! Close form");
-            // You can use an event or any other mechanism for this purpose
-            (Owner as MainWindow)?.HandleChildWindowClosed();
+            ChildFormClosed?.Invoke(this, e);
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            // Raise the custom event when the form is closed
+            OnChildFormClosed(e);
+            base.OnClosed(e);
         }
         private void Create_Confirm_Click(object sender, RoutedEventArgs e)
         {

@@ -1,0 +1,48 @@
+﻿<Window x:Class="_3DCarManagement.PositionManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3DCarManagement"
+        mc:Ignorable="d"
+        Title="PositionManagement" Height="450" Width="800">
+    <Grid Name="Grid_Total" Margin="0,225,0,0">
+        <Button x:Name="addPositionBTN" Content="Add Sheft" HorizontalAlignment="Left" Margin="29,-140,0,0" VerticalAlignment="Top" Width="87" Click="addPositionBTN_Click"/>
+        <Button x:Name="RemoveSheftBTN" Content="Remove sheft" HorizontalAlignment="Left" Margin="29,-87,0,0" VerticalAlignment="Top" Width="87" Click="RemoveSheftBTN_Click"/>
+        <Label Content="POSITION MANAGEMENT" HorizontalAlignment="Left" Margin="296,-203,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <!-- Draw a circle -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="205*"/>
+                <ColumnDefinition Width="138*"/>
+                <ColumnDefinition Width="57*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Black ellipse -->
+            <Ellipse x:Name="blackEllipse" Width="120" Height="119" Fill="Black" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,-176,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+            <!-- White ellipse on top (50% transparency) -->
+            <Ellipse x:Name="whiteEllipse" Width="120" Height="119" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="238,-176,0,0" Grid.Column="1" Grid.ColumnSpan="2">
+                <Ellipse.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop x:Name="gradientStop" Offset="0.6" Color="Black"/>
+                        <GradientStop x:Name="gradientStop2" Offset="0.6" Color="Transparent"/>
+                    </LinearGradientBrush>
+                </Ellipse.OpacityMask>
+            </Ellipse>
+        </Grid>
+        <Label x:Name="TxtAvailable" Content="Label" HorizontalAlignment="Left" Margin="639,-50,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Width="145"/>
+        <TextBox x:Name="TxtSheftIdToRemove" HorizontalAlignment="Left" Margin="134,-87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="20"/>
+        <TextBox x:Name="txtNumberOfLevels" HorizontalAlignment="Left" Margin="134,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Height="20"/>
+        <TextBox x:Name="TxtNumberOfPosition" HorizontalAlignment="Left" Margin="257,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="20"/>
+        <Label Content="Number of levels:" HorizontalAlignment="Left" Margin="134,-171,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Number of positions:" HorizontalAlignment="Left" Margin="257,-172,0,0" VerticalAlignment="Top" Width="127"/>
+
+
+        <!-- Define segments using PathGeometry -->
+
+
+
+    </Grid>
+
+</Window>

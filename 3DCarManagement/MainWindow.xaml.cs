@@ -30,19 +30,19 @@ namespace _3DCarManagement
             LoadGridView();
         }
 
-        public void HandleChildWindowClosed()
-        {
-            DataTotal.ItemsSource = null;
-
-            LoadGridView();
-        }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ImportCar Import = new ImportCar(_context);
+            Import.ChildFormClosed += ChildForm_Closed;
             Import.Show();
         }
 
+        private void ChildForm_Closed(object sender, EventArgs e)
+        {
+            DataTotal.ItemsSource = null;
+            LoadGridView();
+        }
         private void DataTotal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -52,10 +52,12 @@ namespace _3DCarManagement
         {
             DataTotal.ItemsSource = _context.Cars.ToList();
         }
+        
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            PositionManagement management = new PositionManagement(_context);
+            management.Show();
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)

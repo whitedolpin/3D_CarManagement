@@ -109,12 +109,14 @@ namespace _3DCarManagement
         private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             vertical_rotate = Rotate_Slider.Value;
+            set_Horizontal();
             set_vertical();
         }
 
         private void Horizontal_Rotate_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             horizontal_rotate = Horizontal_Rotate.Value;
+            set_vertical();
             set_Horizontal();
         }
 
@@ -156,7 +158,7 @@ namespace _3DCarManagement
         }
         private void set_zoom()
         {
-            camMain.Position = new Point3D(camera_zoom+2, camera_zoom+1, camera_zoom);
+            camMain.Position = new Point3D(0, 0, camera_zoom);
         }
     }
 

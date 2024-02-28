@@ -9,7 +9,7 @@
     <Grid x:Name="GridTotal">
         <Button x:Name="ImportBTN" Content="Import new Car" HorizontalAlignment="Left" Margin="75,69,0,0" VerticalAlignment="Top" Click="Button_Click" Width="156"/>
         <Label Content="TOY CAR MODEL MANAGEMENT" Margin="271,22,334,381"/>
-        <Button x:Name="ViewAllBTN" Content="View all model in3D" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_1"/>
+        <Button x:Name="PositionManangeBTN" Content="Position management" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click_1"/>
         <DataGrid x:Name="DataTotal" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,115,10,135" SelectionChanged="DataTotal_SelectionChanged">
             <DataGrid.Columns>
 
@@ -27,6 +27,14 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Delete" Click="DeleteButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!-- Delete Column -->
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="New file" Click="DeleteButton_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

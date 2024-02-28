@@ -13,7 +13,7 @@
         <Viewport3D Name="viewport3D1">
             <!-- Define camera -->
             <Viewport3D.Camera>
-                <PerspectiveCamera x:Name="camMain" Position="24, 23, 22" LookDirection="-6, -5, -4" UpDirection="0, 1, 0" FieldOfView="45"/>
+                <PerspectiveCamera x:Name="camMain" Position="0, 0, 10" LookDirection="0, 0, -1" UpDirection="0, 1, 0" FieldOfView="45"/>
             </Viewport3D.Camera>
 
             <!-- Define lights and 3D model -->
