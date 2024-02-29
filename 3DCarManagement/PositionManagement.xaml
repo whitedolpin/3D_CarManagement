@@ -31,7 +31,7 @@
                 </Ellipse.OpacityMask>
             </Ellipse>
         </Grid>
-        <Label x:Name="TxtAvailable" Content="Label" HorizontalAlignment="Left" Margin="639,-50,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Width="145"/>
+        <Label x:Name="TxtAvailable" Content="Label" HorizontalAlignment="Left" Margin="633,-50,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Width="167"/>
         <TextBox x:Name="TxtSheftIdToRemove" HorizontalAlignment="Left" Margin="134,-87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="20"/>
         <TextBox x:Name="txtNumberOfLevels" HorizontalAlignment="Left" Margin="134,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Height="20"/>
         <TextBox x:Name="TxtNumberOfPosition" HorizontalAlignment="Left" Margin="257,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="20"/>

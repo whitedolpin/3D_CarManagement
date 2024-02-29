@@ -67,12 +67,21 @@ namespace _3DCarManagement
 
             try
             {
+                Position? pos = _context.Positions.FirstOrDefault(u => u.Available == true);
+                if (pos == null)
+                {
+                    MessageBox.Show("No available position found!");
+                    return;
+                }
+                pos.Available = false;
+                _context.Positions.Update(pos);
+
                 Car import = new Car()
                 {
                     //CarId = int.Parse(CarID.Text.ToString()),
                     CreatedBy = Created_By.Text.ToString(),
                     CheckBy = Check_By.Text.ToString(),
-                    PositionId = int.Parse(PositionID.Text.ToString()),
+                    PositionId = pos.PositionId,
                     BrandName= Brand_Name.Text.ToString(),
                     ModelName = Model_Name.Text.ToString(),
                     Scale = Scale.Text.ToString(),
@@ -89,8 +98,10 @@ namespace _3DCarManagement
                     OtherInfo = OtherInfo.Text.ToString()
                 };
                 _context.Cars.Add(import);
-                _context.SaveChanges();
                 
+                _context.SaveChanges();
+
+                MessageBox.Show("Import new car successfull!");
                 Close();
 
             }catch(Exception ex)

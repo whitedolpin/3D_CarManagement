@@ -8,7 +8,6 @@
         Title="ImportCar" Height="450" Width="800">
     <Grid>
         <Label Content="Created_By:" HorizontalAlignment="Left" Margin="14,146,0,0" VerticalAlignment="Top"/>
-        <Label Content="PositionID:" HorizontalAlignment="Left" Margin="12,220,0,0" VerticalAlignment="Top"/>
         <Label Content="Check_By:" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top"/>
         <Label Content="Car information" Margin="466,95,232,313"/>
         <Label Content="Management Info" HorizontalAlignment="Left" Margin="7,95,0,0" VerticalAlignment="Top"/>
@@ -42,7 +41,6 @@
         <Label Content="Other info: " HorizontalAlignment="Left" Margin="525,375,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Created_By" HorizontalAlignment="Left" Margin="83,146,0,0" TextWrapping="Wrap" Text="Created_By" VerticalAlignment="Top" Width="133" Height="26"/>
         <TextBox x:Name="Check_By" HorizontalAlignment="Left" Margin="83,182,0,0" TextWrapping="Wrap" Text="Check_By" VerticalAlignment="Top" Width="133" Height="26"/>
-        <TextBox x:Name="PositionID" HorizontalAlignment="Left" Margin="83,220,0,0" TextWrapping="Wrap" Text="PositionID" VerticalAlignment="Top" Width="133" Height="26"/>
         <TextBox x:Name="Brand_Name" HorizontalAlignment="Left" Margin="337,136,0,0" TextWrapping="Wrap" Text="Brand Name" VerticalAlignment="Top" Width="161" Height="26"/>
         <TextBox x:Name="Model_Name" HorizontalAlignment="Left" Margin="337,169,0,0" TextWrapping="Wrap" Text="Model Name" VerticalAlignment="Top" Width="161" Height="26"/>
         <TextBox x:Name="Scale" HorizontalAlignment="Left" Margin="337,207,0,0" TextWrapping="Wrap" Text="Scale" VerticalAlignment="Top" Width="161" Height="26"/>

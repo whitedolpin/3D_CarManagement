@@ -88,7 +88,7 @@ namespace _3DCarManagement
         {
             percent = 1 - percent;
 
-            TxtAvailable.Content = "Position available: " + percent*100 +" %";
+            TxtAvailable.Content = "Position available: " + Math.Round(percent * 100, 2) + " %";
             gradientStop.Offset = percent;
             gradientStop2.Offset = percent;
 
