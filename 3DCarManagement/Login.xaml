@@ -14,7 +14,7 @@
     <Border CornerRadius="12" ClipToBounds="True" Width="451" Height="499">
         <Border.Background>
             <ImageBrush ImageSource="/Images/back-image.jpg"
-                        Stretch="None"/>
+                        Stretch="UniformToFill" AlignmentX="Center"/>
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
@@ -34,23 +34,56 @@
             </Border.Background>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="33"/>
+                        <ColumnDefinition Width="33"/>
                         <ColumnDefinition Width="5"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="LOG IN"
                                Foreground="DarkGray"
-                               FontSize="10"
+                               FontSize="20"
+                               FontWeight="Bold"
                                FontFamily="Montserrat"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="10,0,0,0"/>
+
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
                     <Button x:Name="btnClose"                          
                             BorderThickness="0"
                             Content="X"
@@ -72,8 +105,8 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
@@ -81,7 +114,9 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
+
                 </Grid>
+
                 <StackPanel Width="220"
                             Grid.Row="1"
                             Orientation="Vertical"
@@ -183,6 +218,5 @@
                 </StackPanel>
             </Grid>
         </Border>
-
     </Border>
 </Window>

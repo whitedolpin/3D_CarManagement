@@ -68,5 +68,10 @@ namespace _3DCarManagement
         {
             this.Close();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
