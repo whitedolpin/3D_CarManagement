@@ -28,7 +28,16 @@ namespace _3DCarManagement
             Set3dObject();
          //   MoveObjectToLeft();
         }
-              
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
         private void Set3dObject()
         {
             try
