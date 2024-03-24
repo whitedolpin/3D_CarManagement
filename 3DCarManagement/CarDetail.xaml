@@ -5,45 +5,157 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_3DCarManagement"
         mc:Ignorable="d"
-        Title="CarDetail" Height="450" Width="800">
+        Title="Car Detail" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
 
-
-    <Grid>
-
-        <Viewport3D Name="viewport3D1">
-            <!-- Define camera -->
-            <Viewport3D.Camera>
-                <PerspectiveCamera x:Name="camMain" Position="0, 0, 10" LookDirection="0, 0, -1" UpDirection="0, 1, 0" FieldOfView="45"/>
-            </Viewport3D.Camera>
-
-            <!-- Define lights and 3D model -->
-
-            <!-- Define lights and 3D model -->
-            <ModelVisual3D>
-                <ModelVisual3D.Content>
-                    <!-- Bind the ModelInstance property to the Content property of ModelVisual3D -->
-                    <Binding Path="ModelInstance" RelativeSource="{RelativeSource AncestorType={x:Type local:CarDetail}}" />
-                </ModelVisual3D.Content>
-            </ModelVisual3D>
-        </Viewport3D>
-        <Slider Height="23" HorizontalAlignment="Left" Margin="41,337,0,0" Width="170" x:Name="Rotate_Slider" VerticalAlignment="Top"
-        Maximum="360" Value="{Binding Path=RotationAngle, Mode=TwoWay}" ValueChanged="slider1_ValueChanged" />
-        <Slider x:Name="Horizontal_Rotate" HorizontalAlignment="Left" Margin="-35,251,0,0" VerticalAlignment="Top" Width="120" 
-               Maximum="360" RenderTransformOrigin="0.5,0.5" ValueChanged="Horizontal_Rotate_ValueChanged">
-            <Slider.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-89.909"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Slider.RenderTransform>
-        </Slider>
-        <Label Content="Zoom: " HorizontalAlignment="Left" Margin="20,22,0,0" VerticalAlignment="Top" Width="51"/>
-        <Slider x:Name="Zoom_Slider" HorizontalAlignment="Left" Margin="91,26,0,0" VerticalAlignment="Top" Width="120" Minimum="0" Maximum="100" Value="5" ValueChanged="Zoom_Slider_ValueChanged_1" />
+    <Border CornerRadius="12" ClipToBounds="True" Margin="0,0,0,-126">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/back-image.jpg"
+                        Stretch="UniformToFill" AlignmentX="Center"/>
+        </Border.Background>
+        <Border CornerRadius="10"                    
+            BorderThickness="2"
+            Opacity="0.9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="576">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
 
 
-    </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="33"/>
+                        <ColumnDefinition Width="33"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="CAR DETAIL"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <Viewport3D Name="viewport3D1" Grid.Row="1">
+                    <!-- Define camera -->
+                    <Viewport3D.Camera>
+                        <PerspectiveCamera x:Name="camMain" Position="0, 0, 10" LookDirection="0, 0, -1" UpDirection="0, 1, 0" FieldOfView="45"/>
+                    </Viewport3D.Camera>
 
+                    <!-- Define lights and 3D model -->
+
+                    <!-- Define lights and 3D model -->
+                    <ModelVisual3D>
+                        <ModelVisual3D.Content>
+                            <!-- Bind the ModelInstance property to the Content property of ModelVisual3D -->
+                            <Binding Path="ModelInstance" RelativeSource="{RelativeSource AncestorType={x:Type local:CarDetail}}" />
+                        </ModelVisual3D.Content>
+                    </ModelVisual3D>
+                </Viewport3D>
+                <Slider Height="23" HorizontalAlignment="Left" Margin="30,480,0,0" Width="185" x:Name="Rotate_Slider" VerticalAlignment="Top"
+        Maximum="360" Value="{Binding Path=RotationAngle, Mode=TwoWay}" ValueChanged="slider1_ValueChanged" Grid.Row="1" />
+                <Slider x:Name="Horizontal_Rotate" HorizontalAlignment="Left" Margin="-23,368,0,0" VerticalAlignment="Top" Width="120" 
+               Maximum="360" RenderTransformOrigin="0.5,0.5" ValueChanged="Horizontal_Rotate_ValueChanged" Grid.Row="1">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-89.909"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <TextBlock Text="Zoom"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"
+                               Margin="30,17,700,364" Grid.Row="1"/>
+                <Slider x:Name="Zoom_Slider" HorizontalAlignment="Left" Margin="95,18,0,0" VerticalAlignment="Top" Width="120" Minimum="0" Maximum="100" Value="5" ValueChanged="Zoom_Slider_ValueChanged_1" Grid.Row="1" />
+            </Grid>
+
+
+        </Border>
+    </Border>
 </Window>

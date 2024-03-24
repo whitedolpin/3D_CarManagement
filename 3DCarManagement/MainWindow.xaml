@@ -18,7 +18,7 @@
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
-            Opacity="0.95" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center">
+            Opacity="0.9" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -397,8 +397,6 @@
                     </DataGrid>
 
                 </StackPanel>
-
-
             </Grid>
         </Border>
     </Border>

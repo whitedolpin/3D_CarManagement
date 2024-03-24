@@ -18,7 +18,7 @@
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
-            Opacity="0.95" HorizontalAlignment="Center" Width="451">
+            Opacity="0.9" HorizontalAlignment="Center" Width="451">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -189,11 +189,11 @@
                             BorderThickness="0"
                             Content="LOG IN"
                             Foreground="White"
-                            FontSize="12"
+                            FontSize="15"
                             FontFamily="Montserrat"
                             Cursor="Hand"                           
                             Margin="0,50,0,0"
-                            Click="LoginBTN_Click">
+                            Click="LoginBTN_Click" FontWeight="Bold">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#462AD8"/>

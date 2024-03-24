@@ -5,44 +5,267 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_3DCarManagement"
         mc:Ignorable="d"
-        Title="PositionManagement" Height="450" Width="800">
-    <Grid Name="Grid_Total" Margin="0,225,0,0">
-        <Button x:Name="addPositionBTN" Content="Add Sheft" HorizontalAlignment="Left" Margin="29,-140,0,0" VerticalAlignment="Top" Width="87" Click="addPositionBTN_Click"/>
-        <Button x:Name="RemoveSheftBTN" Content="Remove sheft" HorizontalAlignment="Left" Margin="29,-87,0,0" VerticalAlignment="Top" Width="87" Click="RemoveSheftBTN_Click"/>
-        <Label Content="POSITION MANAGEMENT" HorizontalAlignment="Left" Margin="296,-203,0,0" VerticalAlignment="Top" Width="150"/>
+        Title="Position Management"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
 
-        <!-- Draw a circle -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="205*"/>
-                <ColumnDefinition Width="138*"/>
-                <ColumnDefinition Width="57*"/>
-            </Grid.ColumnDefinitions>
-            <!-- Black ellipse -->
-            <Ellipse x:Name="blackEllipse" Width="120" Height="119" Fill="Black" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,-176,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
+    <Border CornerRadius="12" ClipToBounds="True" Margin="0,0,0,-126">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/back-image.jpg"
+                        Stretch="UniformToFill" AlignmentX="Center"/>
+        </Border.Background>
+        <Border CornerRadius="10"                    
+            BorderThickness="2"
+            Opacity="0.9" HorizontalAlignment="Center" VerticalAlignment="Top" Width="934" Height="288">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
-            <!-- White ellipse on top (50% transparency) -->
-            <Ellipse x:Name="whiteEllipse" Width="120" Height="119" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="238,-176,0,0" Grid.Column="1" Grid.ColumnSpan="2">
-                <Ellipse.OpacityMask>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop x:Name="gradientStop" Offset="0.6" Color="Black"/>
-                        <GradientStop x:Name="gradientStop2" Offset="0.6" Color="Transparent"/>
-                    </LinearGradientBrush>
-                </Ellipse.OpacityMask>
-            </Ellipse>
-        </Grid>
-        <Label x:Name="TxtAvailable" Content="Label" HorizontalAlignment="Left" Margin="633,-50,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Width="167"/>
-        <TextBox x:Name="TxtSheftIdToRemove" HorizontalAlignment="Left" Margin="134,-87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="20"/>
-        <TextBox x:Name="txtNumberOfLevels" HorizontalAlignment="Left" Margin="134,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" Height="20"/>
-        <TextBox x:Name="TxtNumberOfPosition" HorizontalAlignment="Left" Margin="257,-140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="20"/>
-        <Label Content="Number of levels:" HorizontalAlignment="Left" Margin="134,-171,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Number of positions:" HorizontalAlignment="Left" Margin="257,-172,0,0" VerticalAlignment="Top" Width="127"/>
+            <Grid Name="Grid_Total" Margin="0,-2,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="33"/>
+                        <ColumnDefinition Width="33"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="POSITION MANAGEMENT"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Bold"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"                           
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"                          
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="25" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <!-- Draw a circle -->
+                <Grid Margin="0,213,0,314" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="313*"/>
+                        <ColumnDefinition Width="164*"/>
+                        <ColumnDefinition Width="285*"/>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="132*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Black ellipse -->
+                    <Ellipse x:Name="blackEllipse" Width="120" Height="119" Fill="Black" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="238,-176,0,0" Grid.Column="2" Grid.ColumnSpan="3"/>
+
+                    <!-- White ellipse on top (50% transparency) -->
+                    <Ellipse x:Name="whiteEllipse" Width="120" Height="119" Fill="White" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="238,-176,0,0" Grid.Column="2" Grid.ColumnSpan="3">
+                        <Ellipse.OpacityMask>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop x:Name="gradientStop" Offset="0.6" Color="Black"/>
+                                <GradientStop x:Name="gradientStop2" Offset="0.6" Color="Transparent"/>
+                            </LinearGradientBrush>
+                        </Ellipse.OpacityMask>
+                    </Ellipse>
+                </Grid>
+                <Label x:Name="TxtAvailable" Content="Position available: 100%" HorizontalAlignment="Left" Margin="655,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Foreground="AntiqueWhite"
+                               FontSize="22"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat" Grid.Row="1" Width="254"/>
+
+                <TextBlock Text="Number of levels"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat" Margin="29,49,610,168" Grid.Row="1"/>
+                <TextBox x:Name="txtNumberOfLevels"
+                             FontSize="20"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             VerticalContentAlignment="Center"
+                             Margin="30,80,718,132"
+                             Padding="3,0,0,0"
+                             Background="Transparent" Grid.Row="1"/>
+
+                <TextBlock Text="Number of positions"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat" Margin="247,49,355,168" Grid.Row="1"/>
+                <TextBox x:Name="TxtNumberOfPosition"
+                             FontSize="20"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             VerticalContentAlignment="Center"
+                             Margin="249,80,491,132"
+                             Padding="3,0,0,0"
+                             Background="Transparent" Grid.Row="1"/>
+
+                <TextBlock Text="Removed sheft Id"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat" Margin="30,143,572,74" Grid.Row="1"/>
+                <TextBox x:Name="TxtSheftIdToRemove"
+                             FontSize="20"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="2,2,2,2"
+                             VerticalContentAlignment="Center"
+                             Margin="30,171,718,43"
+                             Padding="3,0,0,0"
+                             Background="Transparent" Grid.Row="1"/>
+
+                <Button x:Name="addPositionBTN"
+                            Margin="464,67,292,126"                    
+                            BorderThickness="0"
+                            Content="Add Sheft"
+                            Foreground="White"
+                            FontSize="20"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="addPositionBTN_Click" Height="53" FontWeight="Bold" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="RemoveSheftBTN"
+                            Margin="245,154,493,39"                    
+                            BorderThickness="0"
+                            Content="Remove Sheft"
+                            Foreground="White"
+                            FontSize="20"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Click="RemoveSheftBTN_Click" Height="53" FontWeight="Bold" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="180" Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Define segments using PathGeometry -->
 
 
-        <!-- Define segments using PathGeometry -->
 
+            </Grid>
 
-
-    </Grid>
+        </Border>
+    </Border>
 
 </Window>
