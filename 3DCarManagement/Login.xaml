@@ -120,7 +120,7 @@
                 <StackPanel Width="220"
                             Grid.Row="1"
                             Orientation="Vertical"
-                            Margin="0,35,0,0">
+                            Margin="0,15,0,0">
                     <Image Source="/Images/Logo.png"
                            Width="100" Height="100"/>
                     <TextBlock Text="MAGICAL 3D CAR"
