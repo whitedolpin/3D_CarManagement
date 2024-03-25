@@ -19,7 +19,7 @@
         </Border.Background>
         <Border CornerRadius="10"                    
             BorderThickness="2"
-            Opacity="0.9" HorizontalAlignment="Center" VerticalAlignment="Top" Width="934" Height="288">
+            Opacity="0.9" HorizontalAlignment="Center" VerticalAlignment="Top" Width="934" Height="557">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#462AD8" Offset="0"/>
@@ -117,7 +117,7 @@
                     </Button>
                 </Grid>
                 <!-- Draw a circle -->
-                <Grid Margin="0,213,0,314" Grid.Row="1">
+                <Grid Margin="0,213,0,0" Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="313*"/>
                         <ColumnDefinition Width="164*"/>
@@ -138,7 +138,7 @@
                         </Ellipse.OpacityMask>
                     </Ellipse>
                 </Grid>
-                <Label x:Name="TxtAvailable" Content="Position available: 100%" HorizontalAlignment="Left" Margin="655,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Foreground="AntiqueWhite"
+                <Label x:Name="TxtAvailable" Content="Position available: 100%" HorizontalAlignment="Left" Margin="655,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Foreground="AntiqueWhite"
                                FontSize="22"
                                FontWeight="Medium"
                                FontFamily="Montserrat" Grid.Row="1" Width="254"/>
@@ -147,7 +147,7 @@
                                Foreground="DarkGray"
                                FontSize="20"
                                FontWeight="Medium"
-                               FontFamily="Montserrat" Margin="29,49,610,168" Grid.Row="1"/>
+                               FontFamily="Montserrat" Margin="29,49,718,435" Grid.Row="1"/>
                 <TextBox x:Name="txtNumberOfLevels"
                              FontSize="20"
                              FontWeight="Medium"
@@ -157,7 +157,7 @@
                              BorderBrush="DarkGray"
                              BorderThickness="2,2,2,2"
                              VerticalContentAlignment="Center"
-                             Margin="30,80,718,132"
+                             Margin="30,80,718,407"
                              Padding="3,0,0,0"
                              Background="Transparent" Grid.Row="1"/>
 
@@ -165,7 +165,7 @@
                                Foreground="DarkGray"
                                FontSize="20"
                                FontWeight="Medium"
-                               FontFamily="Montserrat" Margin="247,49,355,168" Grid.Row="1"/>
+                               FontFamily="Montserrat" Margin="247,49,491,407" Grid.Row="1"/>
                 <TextBox x:Name="TxtNumberOfPosition"
                              FontSize="20"
                              FontWeight="Medium"
@@ -175,7 +175,7 @@
                              BorderBrush="DarkGray"
                              BorderThickness="2,2,2,2"
                              VerticalContentAlignment="Center"
-                             Margin="249,80,491,132"
+                             Margin="249,80,491,407"
                              Padding="3,0,0,0"
                              Background="Transparent" Grid.Row="1"/>
 
@@ -183,7 +183,7 @@
                                Foreground="DarkGray"
                                FontSize="20"
                                FontWeight="Medium"
-                               FontFamily="Montserrat" Margin="30,143,572,74" Grid.Row="1"/>
+                               FontFamily="Montserrat" Margin="30,137,718,350" Grid.Row="1"/>
                 <TextBox x:Name="TxtSheftIdToRemove"
                              FontSize="20"
                              FontWeight="Medium"
@@ -193,12 +193,12 @@
                              BorderBrush="DarkGray"
                              BorderThickness="2,2,2,2"
                              VerticalContentAlignment="Center"
-                             Margin="30,171,718,43"
+                             Margin="30,165,718,323"
                              Padding="3,0,0,0"
                              Background="Transparent" Grid.Row="1"/>
 
                 <Button x:Name="addPositionBTN"
-                            Margin="464,67,292,126"                    
+                            Margin="465,60,291,402"                    
                             BorderThickness="0"
                             Content="Add Sheft"
                             Foreground="White"
@@ -229,7 +229,7 @@
                 </Button>
 
                 <Button x:Name="RemoveSheftBTN"
-                            Margin="245,154,493,39"                    
+                            Margin="249,146,489,316"                    
                             BorderThickness="0"
                             Content="Remove Sheft"
                             Foreground="White"
