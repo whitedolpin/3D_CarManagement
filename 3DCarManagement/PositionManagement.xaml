@@ -138,10 +138,10 @@
                         </Ellipse.OpacityMask>
                     </Ellipse>
                 </Grid>
-                <Label x:Name="TxtAvailable" Content="Position available: 100%" HorizontalAlignment="Left" Margin="655,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Foreground="AntiqueWhite"
+                <Label x:Name="TxtAvailable" Content="Position available: 100%" HorizontalAlignment="Left" Margin="615,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.495,0.29" Foreground="AntiqueWhite"
                                FontSize="22"
                                FontWeight="Medium"
-                               FontFamily="Montserrat" Grid.Row="1" Width="254"/>
+                               FontFamily="Montserrat" Grid.Row="1" Width="294"/>
 
                 <TextBlock Text="Number of levels"
                                Foreground="DarkGray"
