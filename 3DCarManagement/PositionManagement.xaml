@@ -259,6 +259,21 @@
                     </Button.Template>
                 </Button>
 
+                <DataGrid x:Name="DataGridPositions" d:ItemsSource="{d:SampleData ItemCount=5}" HeadersVisibility="Column"
+                              Background="Transparent" BorderBrush="Transparent" HorizontalGridLinesBrush="White" VerticalGridLinesBrush="White" RowBackground="Transparent" Foreground="White" Margin="0,213,0,10" Grid.Row="1"
+                              >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="LightBlue"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Setter Property="Padding" Value="2,3,2,3"/>
+                            <Setter Property="BorderThickness" Value="0.5"/>
+                            <Setter Property="BorderBrush" Value="#fff"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                </DataGrid>
+
                 <!-- Define segments using PathGeometry -->
 
 

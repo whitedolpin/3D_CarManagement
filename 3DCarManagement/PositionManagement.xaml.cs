@@ -38,7 +38,7 @@ namespace _3DCarManagement
 
         private void LoadGrid()
         {
-            DataGrid dataGrid = new DataGrid();
+            //DataGrid dataGrid = new DataGrid();
 
             // Add the DataGrid to your container (e.g., a StackPanel)
             List<Position> ListSource = _context.Positions.OrderBy(u => u.PositionId).ToList();
@@ -68,8 +68,9 @@ namespace _3DCarManagement
             }
 
 
-            dataGrid.ItemsSource = ListSource;
-            Grid_Total.Children.Add(dataGrid);
+            //dataGrid.ItemsSource = ListSource;
+            //Grid_Total.Children.Add(dataGrid);
+            DataGridPositions.ItemsSource = ListSource;
 
             double avai = _context.Positions.Count( u => u.Available == false);
             double total = _context.Positions.Count();
